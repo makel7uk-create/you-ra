@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOU-RA СТІК 200 мл — презентація для інвестора</title>
+<style>
+  :root{
+    --green:#0b5d2e; --green-d:#063d1e; --green-l:#127a3e;
+    --gold:#d4af37; --gold-l:#f1d57a; --cream:#f6f1e3; --ink:#0a160d;
+    --line:rgba(212,175,55,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:"Segoe UI",system-ui,Arial,sans-serif; color:var(--cream);
+    background:
+      radial-gradient(1100px 650px at 80% -10%, rgba(212,175,55,.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, rgba(18,122,62,.5), transparent 55%),
+      linear-gradient(160deg,#063d1e,#0b5d2e 60%,#063d1e);
+    background-attachment:fixed; padding:34px 20px 60px; line-height:1.55;
+  }
+  .wrap{max-width:980px;margin:0 auto}
+  .grad{background:linear-gradient(92deg,var(--gold-l),var(--gold) 45%,#fff8e1 55%,var(--gold-l));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* HERO */
+  .hero{text-align:center;padding:14px 0 26px}
+  .sun{font-size:2.4rem;filter:drop-shadow(0 0 18px #d4af3788)}
+  .brand{letter-spacing:.45em;color:var(--gold-l);font-weight:700;font-size:1rem;margin:6px 0 4px}
+  h1{font-size:2.8rem;font-weight:800;line-height:1.05}
+  .tag{color:#d8e4d6;font-size:1.05rem;margin-top:10px}
+  .slogan{margin-top:14px;color:var(--gold-l);font-style:italic;font-size:.95rem;letter-spacing:.04em}
+
+  .section-title{color:var(--gold-l);font-size:1.25rem;font-weight:700;
+    margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:10px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:rgba(255,255,255,.045);border:1px solid var(--line);
+    border-radius:14px;padding:20px;backdrop-filter:blur(6px)}
+  .card h3{color:var(--gold-l);font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+
+  .metric{font-size:2rem;font-weight:800;color:var(--gold-l);line-height:1}
+  .metric small{display:block;font-size:.8rem;font-weight:500;color:#c9d4c7;
+    text-transform:none;letter-spacing:0;margin-top:8px;line-height:1.4}
+
+  /* problem -> solution */
+  .ps{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+  .ps .box{border-radius:12px;padding:18px}
+  .ps .prob{background:rgba(180,70,40,.14);border:1px solid rgba(220,120,90,.35)}
+  .ps .sol{background:rgba(18,122,62,.18);border:1px solid rgba(120,210,150,.35)}
+  .ps .lab{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .ps .prob .lab{color:#ffb39a}.ps .sol .lab{color:#9fe3b3}
+  .ps .big{font-size:1.4rem;font-weight:800;color:var(--cream)}
+  .ps .sub{color:#cdd7cb;font-size:.9rem;margin-top:8px}
+  .ps .arr{display:flex;align-items:center;font-size:1.8rem;color:var(--gold)}
+
+  table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:4px}
+  th{color:var(--gold-l);text-align:left;padding:10px 12px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.06em;font-size:.78rem;border-bottom:1px solid var(--line)}
+  td{padding:10px 12px;border-bottom:1px solid var(--line)}
+  td.r,th.r{text-align:right}
+  td.num{color:var(--gold-l);font-weight:700;white-space:nowrap}
+  tr.total td{font-weight:800;border-top:2px solid var(--gold);color:var(--gold-l);font-size:1.08em;border-bottom:none}
+
+  /* big econ row */
+  .econ{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-end;margin-top:20px}
+  .econ .box{flex:1;min-width:150px;background:rgba(0,0,0,.18);border:1px solid var(--line);
+    border-radius:12px;padding:16px 18px;text-align:center}
+  .econ .lab{color:#c9d4c7;font-size:.82rem;margin-bottom:8px}
+  .econ .v{font-size:2rem;font-weight:800;color:var(--gold-l)}
+  .econ .arr{display:flex;align-items:center;font-size:1.6rem;color:var(--gold)}
+
+  .note{background:rgba(0,0,0,.18);border-left:3px solid var(--gold);
+    padding:12px 16px;border-radius:8px;color:#cdd7cb;font-size:.9rem;margin-top:14px}
+
+  .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.78rem;font-weight:600}
+  .b-go{background:rgba(18,122,62,.35);color:#9fe3b3}
+  .b-am{background:rgba(212,175,55,.2);color:var(--gold-l)}
+
+  .reco{background:linear-gradient(135deg,rgba(212,175,55,.14),rgba(11,93,46,.25));
+    border:1px solid var(--gold);border-radius:14px;padding:22px;margin-top:24px}
+  .reco .h{color:var(--gold-l);font-weight:800;font-size:1.05rem;margin-bottom:8px}
+
+  .foot{text-align:center;color:#8fae93;font-size:.82rem;margin-top:42px}
+
+  @media(max-width:720px){
+    .grid2,.grid3,.ps{grid-template-columns:1fr}
+    .ps .arr{justify-content:center;transform:rotate(90deg)}
+    .econ .arr{transform:rotate(90deg);justify-content:center}
+    h1{font-size:2.1rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="sun">☀️</div>
+    <div class="brand">Y O U · R A</div>
+    <h1>Напій богів у форматі <span class="grad">СТІК</span></h1>
+    <div class="tag">Сухе саше 200 мл — споживач додає воду й п'є свіжим</div>
+    <div class="slogan">«ТИ БОГ, КОЛИ СМАКУЄШ НАПІЙ БОГІВ»</div>
+  </div>
+
+  <!-- IDEA -->
+  <div class="section-title">💡 Чому стік змінює економіку</div>
+  <div class="ps">
+    <div class="box prob">
+      <div class="lab">Проблема пляшки</div>
+      <div class="big">Тара = 70–80% собівартості</div>
+      <div class="sub">ПЕТ + кришка 3,5–6,5 грн, і ми возимо воду — 89% маси продукту.</div>
+    </div>
+    <div class="arr">→</div>
+    <div class="box sol">
+      <div class="lab">Рішення — стік</div>
+      <div class="big">Саше ~0,4 грн, воду додає клієнт</div>
+      <div class="sub">Логістика в рази дешевша, термін ~рік без UHT і консервантів.</div>
+    </div>
+  </div>
+
+  <!-- ECONOMICS — головне для інвестора -->
+  <div class="section-title">💰 Юніт-економіка стіка</div>
+  <div class="card">
+    <table>
+      <tr><th>Складова собівартості (1 стік на 200 мл)</th><th class="r">Грн</th></tr>
+      <tr><td>Продукт (суха сировина)</td><td class="r num">~1,4</td></tr>
+      <tr><td>Саше (фольга-ламінат)</td><td class="r num">~0,4</td></tr>
+      <tr><td>Фасування + енергія + накладні</td><td class="r num">~0,6</td></tr>
+      <tr class="total"><td>Повна собівартість стіка</td><td class="r">≈ 2,4 грн</td></tr>
+    </table>
+    <div class="econ">
+      <div class="box"><div class="lab">Собівартість</div><div class="v">~2,4 ₴</div></div>
+      <div class="arr">→</div>
+      <div class="box"><div class="lab">Роздріб (орієнтир)</div><div class="v">35 ₴</div></div>
+      <div class="arr">→</div>
+      <div class="box"><div class="lab">Валова маржа</div><div class="v">~93%</div></div>
+    </div>
+    <div class="note">Оцінка на ринкових цінах сировини (Україна, 2026). Версії з капсульованою кислотою / агломерованою сироваткою додають кілька копійок. Точний COGS — після вибору CMO та обсягу партії.</div>
+  </div>
+
+  <!-- порівняння -->
+  <div class="section-title">⚖️ Стік проти пляшки</div>
+  <div class="grid3">
+    <div class="card">
+      <div class="metric">2,4 ₴ <span style="color:#9fe3b3;font-size:1rem">vs</span> 6,3 ₴<small>собівартість стіка проти пляшки 250 мл — у ~2,6× дешевше</small></div>
+    </div>
+    <div class="card">
+      <div class="metric">~17%<small>частка тари у стіку проти 70–80% у пляшці</small></div>
+    </div>
+    <div class="card">
+      <div class="metric">~10×<small>менше маси й об'єму на транспорт — не возимо воду</small></div>
+    </div>
+  </div>
+
+  <!-- product passport -->
+  <div class="section-title">📦 Паспорт продукту</div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Формат</h3>
+      <table>
+        <tr><td>Тип</td><td class="r">Сухе саше, порошок</td></tr>
+        <tr><td>Порція</td><td class="r">1 стік на 200 мл води</td></tr>
+        <tr><td>Маса стіка</td><td class="r num">≈ 20–21 г</td></tr>
+        <tr><td>Цукор у порції</td><td class="r num">~6%</td></tr>
+        <tr><td>Термін</td><td class="r">~1 рік без консервантів</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Дві версії лінійки</h3>
+      <table>
+        <tr><td>🍬 Цукрова <span class="badge b-go">старт</span></td><td class="r num">~20 г</td></tr>
+        <tr><td>🌿 Sugar-free <span class="badge b-am">R&D</span></td><td class="r num">~8–9 г</td></tr>
+      </table>
+      <div class="note" style="margin-top:14px">Цукрова — найближче до оригінального смаку, рекомендована для запуску. Sugar-free дає ще легшу логістику.</div>
+    </div>
+  </div>
+
+  <!-- recommendation -->
+  <div class="reco">
+    <div class="h">✅ Стратегія форматів</div>
+    <b>Стік 200 мл — основний роздрібний формат:</b> він прибирає головний драйвер собівартості (тару) і відкриває маржу ~93% та дешевий експорт.
+    <b>Пляшка</b> лишається для HoReCa та імпульсного продажу. Одна рецептурна база — обидва формати.
+  </div>
+
+  <div class="foot">YOU-RA · СТІК 200 мл · презентація для інвестора · 2026-06-19</div>
+
+</div>
+</body>
+</html>
