@@ -344,5 +344,46 @@
   },{root:deck, threshold:.35});
   secs.forEach(s=>io.observe(s));
 </script>
+<!-- ===== YOU-RA ambient music (шум дощу) ===== -->
+<audio id="yr-audio" loop preload="auto" src="rain.mp3"></audio>
+<button id="yr-music" type="button" aria-label="Фонова музика">
+  <span class="yr-ico">♪</span><span class="yr-txt">увімкнути дощ</span>
+</button>
+<style>
+  #yr-music{position:fixed;right:18px;bottom:18px;z-index:99999;display:flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:30px;cursor:pointer;font:600 .85rem "Segoe UI",system-ui,sans-serif;
+    color:#f1d57a;background:rgba(6,61,30,.82);border:1px solid rgba(212,175,55,.5);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 6px 20px rgba(0,0,0,.35);
+    transition:.25s;letter-spacing:.02em}
+  #yr-music:hover{background:rgba(11,93,46,.92);border-color:#d4af37}
+  #yr-music .yr-ico{font-size:1.05rem;line-height:1}
+  #yr-music.playing .yr-ico{animation:yr-spin 3s linear infinite}
+  #yr-music.hint{animation:yr-pulse 1.6s ease-in-out infinite}
+  @keyframes yr-spin{to{transform:rotate(360deg)}}
+  @keyframes yr-pulse{0%,100%{box-shadow:0 6px 20px rgba(0,0,0,.35)}
+    50%{box-shadow:0 0 0 6px rgba(212,175,55,.18),0 6px 20px rgba(0,0,0,.35)}}
+  @media(max-width:720px){#yr-music .yr-txt{display:none}#yr-music{padding:12px}}
+</style>
+<script>
+(function(){
+  var a=document.getElementById('yr-audio'),b=document.getElementById('yr-music');
+  var ico=b.querySelector('.yr-ico'),txt=b.querySelector('.yr-txt');
+  a.volume=0.32;
+  function setState(p){b.classList.toggle('playing',p);if(p)b.classList.remove('hint');
+    ico.textContent=p?'♫':'♪';txt.textContent=p?'дощ грає':'увімкнути дощ';
+    b.title=p?'Вимкнути музику':'Шум дощу';}
+  function play(){a.play().then(function(){setState(true);}).catch(function(){b.classList.add('hint');});}
+  function toggle(){if(a.paused)play();else{a.pause();setState(false);}}
+  b.addEventListener('click',function(e){e.stopPropagation();toggle();});
+  function once(e){if(e&&e.target&&e.target.closest&&e.target.closest('#yr-music'))return;
+    if(a.paused)play();
+    document.removeEventListener('pointerdown',once);document.removeEventListener('keydown',once);
+    document.removeEventListener('scroll',once);}
+  setState(false);play();
+  document.addEventListener('pointerdown',once);
+  document.addEventListener('keydown',once);
+  document.addEventListener('scroll',once,{passive:true});
+})();
+</script>
 </body>
 </html>
