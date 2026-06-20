@@ -215,17 +215,14 @@
   function setState(p){b.classList.toggle('playing',p);if(p)b.classList.remove('hint');
     ico.textContent=p?'♫':'♪';txt.textContent=p?'Вівальді грає':'увімкнути Вівальді';
     b.title=p?'Вимкнути музику':'Вівальді — Літо, Presto';}
-  function play(){a.play().then(function(){setState(true);}).catch(function(){b.classList.add('hint');});}
+  function play(){a.play().then(function(){setState(true);cleanup();}).catch(function(){b.classList.add('hint');});}
   function toggle(){if(a.paused)play();else{a.pause();setState(false);}}
   b.addEventListener('click',function(e){e.stopPropagation();toggle();});
-  function once(e){if(e&&e.target&&e.target.closest&&e.target.closest('#yr-music'))return;
-    if(a.paused)play();
-    document.removeEventListener('pointerdown',once);document.removeEventListener('keydown',once);
-    document.removeEventListener('scroll',once);}
+  var evs=['pointerdown','touchstart','keydown'];
+  function cleanup(){evs.forEach(function(ev){document.removeEventListener(ev,once);});}
+  function once(e){if(e&&e.target&&e.target.closest&&e.target.closest('#yr-music'))return;if(a.paused)play();}
   setState(false);play();
-  document.addEventListener('pointerdown',once);
-  document.addEventListener('keydown',once);
-  document.addEventListener('scroll',once,{passive:true});
+  evs.forEach(function(ev){document.addEventListener(ev,once,{passive:true});});
 })();
 </script>
 </body>
